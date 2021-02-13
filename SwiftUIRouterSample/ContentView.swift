@@ -8,9 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var router: ContentRouter?
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Button.init("First") {
+                self.router = .first
+            }
+            Button.init("Second") {
+                self.router = .second(text: "Second")
+            }
+        }.sheet(item: self.$router) { $0 }
+
     }
 }
 
