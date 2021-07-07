@@ -20,7 +20,7 @@ enum ContentRouter: View, Hashable, Identifiable {
     var body: some View {
         switch self {
         case .first: return AnyView(FirstView())
-        case .second: return AnyView(SecondView(text: "Second"))
+        case .second(let text): return AnyView(SecondView(text: text))
         }
     }
     
